@@ -23,21 +23,17 @@
   .frame > div, .frame iframe { width:100%; height:100%; border:0; display:block; }
   .tap { position:absolute; inset:0; z-index:5; }
   .ph { position:absolute; inset:0; background-size:cover; background-position:center; z-index:1; }
-  .ph .pl { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-  .ph .pl svg, .pause svg { width:78px; height:78px; opacity:.92; filter:drop-shadow(0 2px 12px rgba(0,0,0,.7)); }
-  .pause { position:absolute; inset:0; z-index:5; display:none; align-items:center; justify-content:center; pointer-events:none; }
+  .pause { position:absolute; inset:0; z-index:4; display:none; align-items:center; justify-content:center; pointer-events:none; }
+  .pause svg { width:80px; height:80px; opacity:.92; filter:drop-shadow(0 2px 12px rgba(0,0,0,.7)); }
   .slide.paused .pause { display:flex; }
   .meta { position:absolute; left:0; right:78px; bottom:0; z-index:6; padding:18px 18px calc(22px + env(safe-area-inset-bottom));
     background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.3) 60%,transparent); pointer-events:none; }
   .meta .ch { font-size:13px; color:#eee; margin-bottom:6px; font-weight:700; }
   .meta .title { font-size:15px; line-height:1.4; font-weight:600;
     display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  /* 전용 내비게이션 (이전/다음) + 영상열기 */
-  .nav { position:fixed; right:12px; top:50%; transform:translateY(-50%); z-index:9; display:flex; flex-direction:column; gap:14px; }
-  .nav button, .nav a { width:52px; height:52px; border:0; border-radius:50%; background:rgba(255,255,255,.2); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:24px; cursor:pointer; backdrop-filter:blur(8px);
-    text-decoration:none; }
-  .nav .yt { font-size:18px; background:rgba(229,57,53,.85); }
+  .nav { position:fixed; right:12px; bottom:calc(96px + env(safe-area-inset-bottom)); z-index:9; }
+  .nav a { width:50px; height:50px; border-radius:50%; background:rgba(229,57,53,.85); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; backdrop-filter:blur(8px); }
   .topbar { position:fixed; top:0; left:0; right:0; z-index:10; padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
     display:flex; align-items:center; justify-content:space-between;
     background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent); pointer-events:none; }
@@ -50,33 +46,24 @@
   .spinner { width:34px; height:34px; border:3px solid rgba(255,255,255,.15); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite; }
   @keyframes spin { to { transform:rotate(360deg); } }
   .hint { position:fixed; left:0; right:0; bottom:calc(36px + env(safe-area-inset-bottom)); z-index:11; text-align:center;
-    color:#fff; font-size:13px; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.85); animation:fade 3.6s ease forwards; }
+    color:#fff; font-size:13px; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.85); animation:fade 3.4s ease forwards; }
   @keyframes fade { 0%,75%{opacity:.96} 100%{opacity:0} }
-  .counter { position:fixed; top:calc(12px + env(safe-area-inset-top)); left:50%; transform:translateX(-50%); z-index:10;
-    font-size:12px; color:#ddd; background:rgba(0,0,0,.4); padding:3px 10px; border-radius:20px; }
 </style>
 </head>
 <body>
 <div class="topbar"><span class="brand">코딩 쇼츠</span>
   <span class="right"><span class="upd" id="upd"></span><button id="sound" aria-label="소리">🔇</button></span></div>
-<div class="counter" id="counter"></div>
 <div id="feed"></div>
-<div class="nav">
-  <button id="prev" aria-label="이전 영상">↑</button>
-  <button id="next" aria-label="다음 영상">↓</button>
-  <a class="yt" id="open" href="#" target="_blank" rel="noopener" aria-label="유튜브에서 열기">▶</a>
-</div>
+<div class="nav"><a class="yt" id="open" href="#" target="_blank" rel="noopener" aria-label="유튜브에서 열기">▶</a></div>
 <div class="center" id="loading"><div class="spinner"></div><div>피드 불러오는 중…</div></div>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M9 7.5v9l8-4.5z"/></svg>';
 const PAUSE='<svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M9 8h2v8H9zM13 8h2v8h-2z"/></svg>';
 const feedEl=document.getElementById('feed');
 const soundBtn=document.getElementById('sound');
 const openBtn=document.getElementById('open');
-const counter=document.getElementById('counter');
-let items=[], apiReady=false, active=-1, interacted=false;
+let items=[], apiReady=false, active=-1, interacted=false, pendingActive=null;
 let soundOn = localStorage.getItem('soundOn')==='0' ? false : true;
 const players=new Map();
 const slides=[];
@@ -90,55 +77,54 @@ function markInteracted(){ if(interacted) return; interacted=true; applyTo(playe
 soundBtn.addEventListener('click',(e)=>{ e.stopPropagation(); interacted=true; soundOn=!soundOn;
   localStorage.setItem('soundOn',soundOn?'1':'0'); applyTo(players.get(active)); updIcon(); });
 
-function ensure(idx){
-  if(players.has(idx)) return players.get(idx);
-  if(idx<0||idx>=items.length) return null;
+function create(idx, autoplay){
   const holder=slides[idx].querySelector('.frame'); holder.innerHTML='<div></div>';
   const id=items[idx].id;
   const p=new YT.Player(holder.firstChild,{
     videoId:id,
-    playerVars:{autoplay:1,mute:1,playsinline:1,loop:1,playlist:id,controls:0,rel:0,modestbranding:1,fs:0,iv_load_policy:3,disablekb:1},
+    playerVars:{autoplay:autoplay?1:0,mute:1,playsinline:1,loop:1,playlist:id,controls:0,rel:0,modestbranding:1,fs:0,iv_load_policy:3,disablekb:1},
     events:{
-      onReady:(e)=>{ if(idx===active){ e.target.playVideo(); applyTo(e.target);} else e.target.mute(); },
+      onReady:(e)=>{ const ph=slides[idx].querySelector('.ph'); if(ph) ph.style.display='none';
+        if(idx===active){ try{e.target.playVideo();}catch(_){} applyTo(e.target);} else { try{e.target.mute(); e.target.pauseVideo();}catch(_){} } },
       onStateChange:(e)=>{ if(e.data===YT.PlayerState.PLAYING && idx===active) applyTo(e.target);
-                           if(e.data===YT.PlayerState.ENDED){ try{e.target.seekTo(0); e.target.playVideo();}catch(_){}}}
+                           if(e.data===YT.PlayerState.ENDED && idx===active){ try{e.target.seekTo(0); e.target.playVideo();}catch(_){}}}
     }
   });
   players.set(idx,p); return p;
 }
 function setActive(idx){
-  if(idx===active) return;
-  const prev=players.get(active);
-  if(prev){ try{prev.pauseVideo(); prev.mute();}catch(e){} }
-  if(active>=0&&slides[active]) slides[active].classList.remove('paused');
-  active=idx;
-  counter.textContent=(idx+1)+' / '+items.length;
-  if(items[idx]) openBtn.href='https://www.youtube.com/shorts/'+items[idx].id;
-  const ph=slides[idx]&&slides[idx].querySelector('.ph'); if(ph) ph.style.display='none';
-  const p=ensure(idx); if(p&&p.playVideo){ try{p.playVideo();}catch(e){} applyTo(p); }
-  updIcon();
+  if(idx<0||idx>=items.length) return;
+  if(idx!==active){
+    const prev=players.get(active);
+    if(prev){ try{prev.pauseVideo(); prev.mute();}catch(e){} }
+    if(active>=0&&slides[active]) slides[active].classList.remove('paused');
+    active=idx;
+    openBtn.href='https://www.youtube.com/shorts/'+items[idx].id;
+  }
+  if(!apiReady){ pendingActive=idx; return; }
+  let p=players.get(idx);
+  if(!p){ p=create(idx,true); } else { try{p.playVideo();}catch(e){} }
+  applyTo(p);
+  // 양옆 미리 로드 (도착 즉시 재생되도록)
+  [idx+1,idx-1].forEach(j=>{ if(j>=0&&j<items.length&&!players.has(j)) create(j,false); });
+  // 멀리 있는 건 정리
   players.forEach((pl,i)=>{ if(Math.abs(i-idx)>2){ try{pl.destroy();}catch(e){} players.delete(i);
     const f=slides[i].querySelector('.frame'); if(f) f.innerHTML='';
-    const p2=slides[i].querySelector('.ph'); if(p2) p2.style.display='';
+    const ph=slides[i].querySelector('.ph'); if(ph) ph.style.display='';
     slides[i].classList.remove('paused'); }});
+  updIcon();
 }
-function goTo(i){ i=Math.max(0,Math.min(items.length-1,i));
-  feedEl.scrollTo({top:i*feedEl.clientHeight, behavior:'smooth'});
-  setActive(i); }   // 즉시 반영 (관찰자도 이어서 보정)
 function togglePlay(){
   const p=players.get(active); if(!p||!p.getPlayerState) return;
   try{ if(p.getPlayerState()===YT.PlayerState.PLAYING){ p.pauseVideo(); slides[active].classList.add('paused'); }
        else { p.playVideo(); slides[active].classList.remove('paused'); } }catch(e){}
 }
 
-document.getElementById('prev').addEventListener('click',(e)=>{ e.stopPropagation(); markInteracted(); goTo(active-1); });
-document.getElementById('next').addEventListener('click',(e)=>{ e.stopPropagation(); markInteracted(); goTo(active+1); });
-
 const io=new IntersectionObserver((es)=>{
   es.forEach(e=>{ if(e.isIntersecting && e.intersectionRatio>0.55){ markInteracted(); setActive(+e.target.dataset.idx);} });
 },{root:feedEl,threshold:[0,0.55,1]});
 
-window.onYouTubeIframeAPIReady=()=>{ apiReady=true; if(active>=0) ensure(active); };
+window.onYouTubeIframeAPIReady=()=>{ apiReady=true; if(pendingActive!=null){ const i=pendingActive; pendingActive=null; setActive(i);} };
 
 async function load(){
   try{
@@ -151,7 +137,7 @@ async function load(){
       const t=thumb(it.id);
       const s=document.createElement('section'); s.className='slide'; s.dataset.idx=i;
       s.innerHTML=`<div class="bg" style="background-image:url('${t}')"></div>
-        <div class="frame"><div class="ph" style="background-image:url('${t}')"><div class="pl">${PLAY}</div></div></div>
+        <div class="frame"><div class="ph" style="background-image:url('${t}')"></div></div>
         <div class="tap"></div><div class="pause">${PAUSE}</div>
         <div class="meta"><div class="ch">${it.channel?('@ '+it.channel):''}</div>
           <div class="title">${(it.title||'').replace(/</g,'&lt;')}</div></div>`;
@@ -161,9 +147,9 @@ async function load(){
     feedEl.addEventListener('click',(e)=>{ if(e.target.classList.contains('tap')) togglePlay(); });
     if(data.updated){ const d=new Date(data.updated);
       document.getElementById('upd').textContent='업데이트 '+d.toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'})+' '+d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}); }
-    active=-1; setActive(0); if(apiReady) ensure(0);
-    const hint=document.createElement('div'); hint.className='hint'; hint.textContent='위로 넘기거나 ↑↓ 버튼으로 이동 · 탭=소리/정지';
-    document.body.appendChild(hint); setTimeout(()=>hint.remove(),3600);
+    setActive(0);
+    const hint=document.createElement('div'); hint.className='hint'; hint.textContent='위로 넘기면 자동재생 · 탭=소리/정지';
+    document.body.appendChild(hint); setTimeout(()=>hint.remove(),3400);
     updIcon();
   }catch(err){ document.getElementById('loading').innerHTML='피드를 불러오지 못했어요.<br><small>'+err+'</small>'; }
 }

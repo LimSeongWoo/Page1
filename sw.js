@@ -1,4 +1,4 @@
-const CACHE = 'coding-shorts-v9';
+const CACHE = 'coding-shorts-v10';
 const ICONS = ['icon-192.png', 'icon-512.png', 'manifest.json'];
 
 self.addEventListener('install', (e) => {

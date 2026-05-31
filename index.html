@@ -14,52 +14,58 @@
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
-  #feed { height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch;
-    overscroll-behavior-y:contain; }
+  #feed { height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; overscroll-behavior-y:contain; }
   #feed::-webkit-scrollbar { display:none; }
   .slide { position:relative; height:100dvh; width:100%; scroll-snap-align:start; scroll-snap-stop:always;
     overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center; }
   .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(36px) brightness(.4); transform:scale(1.3); }
   .frame { position:relative; width:min(100vw,calc(100dvh*9/16)); height:100dvh; }
   .frame > div, .frame iframe { width:100%; height:100%; border:0; display:block; }
-  /* 투명 제스처 레이어: 스와이프는 여기로(부드러운 스냅), 탭은 재생/정지 */
   .tap { position:absolute; inset:0; z-index:5; }
   .ph { position:absolute; inset:0; background-size:cover; background-position:center; z-index:1; }
   .ph .pl { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-  .ph .pl svg { width:72px; height:72px; opacity:.92; filter:drop-shadow(0 2px 10px rgba(0,0,0,.6)); }
+  .ph .pl svg, .pause svg { width:78px; height:78px; opacity:.92; filter:drop-shadow(0 2px 12px rgba(0,0,0,.7)); }
   .pause { position:absolute; inset:0; z-index:5; display:none; align-items:center; justify-content:center; pointer-events:none; }
-  .pause svg { width:84px; height:84px; opacity:.92; filter:drop-shadow(0 2px 12px rgba(0,0,0,.7)); }
   .slide.paused .pause { display:flex; }
-  .meta { position:absolute; left:0; right:72px; bottom:0; z-index:6; padding:18px 18px calc(22px + env(safe-area-inset-bottom));
+  .meta { position:absolute; left:0; right:78px; bottom:0; z-index:6; padding:18px 18px calc(22px + env(safe-area-inset-bottom));
     background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.3) 60%,transparent); pointer-events:none; }
   .meta .ch { font-size:13px; color:#eee; margin-bottom:6px; font-weight:700; }
   .meta .title { font-size:15px; line-height:1.4; font-weight:600;
     display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  .rail { position:absolute; right:12px; bottom:calc(86px + env(safe-area-inset-bottom)); z-index:7;
-    display:flex; flex-direction:column; gap:14px; }
-  .rail a { width:46px; height:46px; border-radius:50%; background:rgba(255,255,255,.18); color:#fff;
-    display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:19px; backdrop-filter:blur(6px); }
+  /* 전용 내비게이션 (이전/다음) + 영상열기 */
+  .nav { position:fixed; right:12px; top:50%; transform:translateY(-50%); z-index:9; display:flex; flex-direction:column; gap:14px; }
+  .nav button, .nav a { width:52px; height:52px; border:0; border-radius:50%; background:rgba(255,255,255,.2); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:24px; cursor:pointer; backdrop-filter:blur(8px);
+    text-decoration:none; }
+  .nav .yt { font-size:18px; background:rgba(229,57,53,.85); }
   .topbar { position:fixed; top:0; left:0; right:0; z-index:10; padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
     display:flex; align-items:center; justify-content:space-between;
     background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent); pointer-events:none; }
   .topbar .brand { font-weight:800; font-size:15px; }
   .topbar .right { display:flex; align-items:center; gap:10px; pointer-events:auto; }
   .topbar .upd { font-size:11px; color:var(--muted); }
-  #sound { width:42px; height:42px; border-radius:50%; border:0; background:rgba(255,255,255,.2); color:#fff;
-    font-size:19px; cursor:pointer; }
+  #sound { width:42px; height:42px; border-radius:50%; border:0; background:rgba(255,255,255,.2); color:#fff; font-size:19px; cursor:pointer; }
   .center { position:fixed; inset:0; z-index:20; display:flex; align-items:center; justify-content:center; flex-direction:column;
     gap:14px; color:var(--muted); text-align:center; padding:24px; background:#000; }
   .spinner { width:34px; height:34px; border:3px solid rgba(255,255,255,.15); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite; }
   @keyframes spin { to { transform:rotate(360deg); } }
   .hint { position:fixed; left:0; right:0; bottom:calc(36px + env(safe-area-inset-bottom)); z-index:11; text-align:center;
-    color:#fff; font-size:13px; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.85); animation:fade 3.4s ease forwards; }
-  @keyframes fade { 0%,72%{opacity:.96} 100%{opacity:0} }
+    color:#fff; font-size:13px; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.85); animation:fade 3.6s ease forwards; }
+  @keyframes fade { 0%,75%{opacity:.96} 100%{opacity:0} }
+  .counter { position:fixed; top:calc(12px + env(safe-area-inset-top)); left:50%; transform:translateX(-50%); z-index:10;
+    font-size:12px; color:#ddd; background:rgba(0,0,0,.4); padding:3px 10px; border-radius:20px; }
 </style>
 </head>
 <body>
 <div class="topbar"><span class="brand">코딩 쇼츠</span>
   <span class="right"><span class="upd" id="upd"></span><button id="sound" aria-label="소리">🔇</button></span></div>
+<div class="counter" id="counter"></div>
 <div id="feed"></div>
+<div class="nav">
+  <button id="prev" aria-label="이전 영상">↑</button>
+  <button id="next" aria-label="다음 영상">↓</button>
+  <a class="yt" id="open" href="#" target="_blank" rel="noopener" aria-label="유튜브에서 열기">▶</a>
+</div>
 <div class="center" id="loading"><div class="spinner"></div><div>피드 불러오는 중…</div></div>
 
 <script src="https://www.youtube.com/iframe_api"></script>
@@ -68,6 +74,8 @@ const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="11" 
 const PAUSE='<svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M9 8h2v8H9zM13 8h2v8h-2z"/></svg>';
 const feedEl=document.getElementById('feed');
 const soundBtn=document.getElementById('sound');
+const openBtn=document.getElementById('open');
+const counter=document.getElementById('counter');
 let items=[], apiReady=false, active=-1, interacted=false;
 let soundOn = localStorage.getItem('soundOn')==='0' ? false : true;
 const players=new Map();
@@ -104,6 +112,8 @@ function setActive(idx){
   if(prev){ try{prev.pauseVideo(); prev.mute();}catch(e){} }
   if(active>=0&&slides[active]) slides[active].classList.remove('paused');
   active=idx;
+  counter.textContent=(idx+1)+' / '+items.length;
+  if(items[idx]) openBtn.href='https://www.youtube.com/shorts/'+items[idx].id;
   const ph=slides[idx]&&slides[idx].querySelector('.ph'); if(ph) ph.style.display='none';
   const p=ensure(idx); if(p&&p.playVideo){ try{p.playVideo();}catch(e){} applyTo(p); }
   updIcon();
@@ -112,13 +122,17 @@ function setActive(idx){
     const p2=slides[i].querySelector('.ph'); if(p2) p2.style.display='';
     slides[i].classList.remove('paused'); }});
 }
+function goTo(i){ i=Math.max(0,Math.min(items.length-1,i));
+  feedEl.scrollTo({top:i*feedEl.clientHeight, behavior:'smooth'});
+  setActive(i); }   // 즉시 반영 (관찰자도 이어서 보정)
 function togglePlay(){
   const p=players.get(active); if(!p||!p.getPlayerState) return;
-  try{
-    if(p.getPlayerState()===YT.PlayerState.PLAYING){ p.pauseVideo(); slides[active].classList.add('paused'); }
-    else { p.playVideo(); slides[active].classList.remove('paused'); }
-  }catch(e){}
+  try{ if(p.getPlayerState()===YT.PlayerState.PLAYING){ p.pauseVideo(); slides[active].classList.add('paused'); }
+       else { p.playVideo(); slides[active].classList.remove('paused'); } }catch(e){}
 }
+
+document.getElementById('prev').addEventListener('click',(e)=>{ e.stopPropagation(); markInteracted(); goTo(active-1); });
+document.getElementById('next').addEventListener('click',(e)=>{ e.stopPropagation(); markInteracted(); goTo(active+1); });
 
 const io=new IntersectionObserver((es)=>{
   es.forEach(e=>{ if(e.isIntersecting && e.intersectionRatio>0.55){ markInteracted(); setActive(+e.target.dataset.idx);} });
@@ -138,21 +152,18 @@ async function load(){
       const s=document.createElement('section'); s.className='slide'; s.dataset.idx=i;
       s.innerHTML=`<div class="bg" style="background-image:url('${t}')"></div>
         <div class="frame"><div class="ph" style="background-image:url('${t}')"><div class="pl">${PLAY}</div></div></div>
-        <div class="tap"></div>
-        <div class="pause">${PAUSE}</div>
+        <div class="tap"></div><div class="pause">${PAUSE}</div>
         <div class="meta"><div class="ch">${it.channel?('@ '+it.channel):''}</div>
-          <div class="title">${(it.title||'').replace(/</g,'&lt;')}</div></div>
-        <div class="rail"><a href="https://www.youtube.com/shorts/${it.id}" target="_blank" rel="noopener">▶</a></div>`;
+          <div class="title">${(it.title||'').replace(/</g,'&lt;')}</div></div>`;
       feedEl.appendChild(s); slides.push(s); io.observe(s);
     });
     document.getElementById('loading').remove();
-    // 탭 → 재생/정지 (스와이프는 자연스럽게 스크롤)
     feedEl.addEventListener('click',(e)=>{ if(e.target.classList.contains('tap')) togglePlay(); });
     if(data.updated){ const d=new Date(data.updated);
       document.getElementById('upd').textContent='업데이트 '+d.toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'})+' '+d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}); }
-    active=0; if(apiReady) setActive(0);
-    const hint=document.createElement('div'); hint.className='hint'; hint.textContent='위로 넘기고 · 탭하면 소리 🔊';
-    document.body.appendChild(hint); setTimeout(()=>hint.remove(),3400);
+    active=-1; setActive(0); if(apiReady) ensure(0);
+    const hint=document.createElement('div'); hint.className='hint'; hint.textContent='위로 넘기거나 ↑↓ 버튼으로 이동 · 탭=소리/정지';
+    document.body.appendChild(hint); setTimeout(()=>hint.remove(),3600);
     updIcon();
   }catch(err){ document.getElementById('loading').innerHTML='피드를 불러오지 못했어요.<br><small>'+err+'</small>'; }
 }

@@ -1,7 +1,14 @@
 {
- "updated": "2026-05-31T12:17:48Z",
+ "updated": "2026-05-31T23:05:19Z",
  "count": 150,
  "items": [
+  {
+   "id": "TCr8QCSSgPw",
+   "title": "Organizing cables behind the GPU like this? The future of innovative PCBs in the AI ​​era.",
+   "channel": "언리얼테크",
+   "date": "20260531",
+   "ts": "2026-05-31T23:05:17Z"
+  },
   {
    "id": "U154TkidDLE",
    "title": "Characteristics of modern AI",
@@ -1044,13 +1051,6 @@
    "channel": "노마드코더",
    "ts": "2026-05-31T11:12:16Z",
    "date": "20230725"
-  },
-  {
-   "id": "a2RMrM0Cyb4",
-   "title": "개발자라면 이런 영화? 이런 미드! #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230720"
   }
  ]
 }

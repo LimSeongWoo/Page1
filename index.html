@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,122 +13,103 @@
   :root { --bg:#000; --fg:#fff; --muted:#9aa0a6; }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-    overscroll-behavior:none; }
-
-  /* z1: 흐린 배경 (현재 영상 썸네일) */
-  #backdrop { position:fixed; inset:0; z-index:1; background-size:cover; background-position:center;
-    filter:blur(36px) brightness(.4); transform:scale(1.3); transition:background-image .2s; }
-  /* z2: 영상 플레이어 하나 (터치 안 먹음) */
-  #stage { position:fixed; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; pointer-events:none; }
-  #pbox { width:min(100vw,calc(100dvh*9/16)); height:100dvh; }
-  #player, #player iframe { width:100%; height:100%; border:0; display:block; pointer-events:none; }
-  /* z3: 투명 스크롤 레이어 (맨 위에서 터치 받음 → 사파리 스크롤 OK) */
-  #feed { position:fixed; inset:0; z-index:3; overflow-y:scroll; scroll-snap-type:y mandatory;
-    -webkit-overflow-scrolling:touch; }
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
+  #feed { height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; }
   #feed::-webkit-scrollbar { display:none; }
-  .slide { height:100dvh; width:100%; scroll-snap-align:start; scroll-snap-stop:always; }
-
-  /* 오버레이 UI */
-  .meta { position:fixed; left:0; right:72px; bottom:0; z-index:8; padding:18px 18px calc(24px + env(safe-area-inset-bottom));
-    background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.3) 60%,transparent); pointer-events:none; max-width:760px; }
+  .slide { position:relative; height:100dvh; width:100%; scroll-snap-align:start; scroll-snap-stop:always;
+    overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center; }
+  .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(36px) brightness(.4); transform:scale(1.3); }
+  .frame { position:relative; width:min(100vw,calc(100dvh*9/16)); height:100dvh; }
+  .frame > div, .frame iframe { width:100%; height:100%; border:0; display:block; }
+  .ph { position:absolute; inset:0; background-size:cover; background-position:center; }
+  .ph .pl { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .ph .pl svg { width:72px; height:72px; opacity:.9; filter:drop-shadow(0 2px 10px rgba(0,0,0,.6)); }
+  .meta { position:absolute; left:0; right:72px; bottom:0; z-index:6; padding:18px 18px calc(22px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.3) 60%,transparent); pointer-events:none; }
   .meta .ch { font-size:13px; color:#eee; margin-bottom:6px; font-weight:700; }
-  .meta .title { font-size:16px; line-height:1.4; font-weight:600;
+  .meta .title { font-size:15px; line-height:1.4; font-weight:600;
     display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  .rail { position:fixed; right:14px; bottom:calc(92px + env(safe-area-inset-bottom)); z-index:9;
-    display:flex; flex-direction:column; gap:16px; }
-  .rail a, .rail button { width:48px; height:48px; border:0; border-radius:50%; background:rgba(255,255,255,.18);
-    color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; text-decoration:none;
-    font-size:20px; backdrop-filter:blur(6px); }
+  .rail { position:absolute; right:12px; bottom:calc(86px + env(safe-area-inset-bottom)); z-index:7;
+    display:flex; flex-direction:column; gap:14px; }
+  .rail a { width:46px; height:46px; border-radius:50%; background:rgba(255,255,255,.18); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:19px; backdrop-filter:blur(6px); }
   .topbar { position:fixed; top:0; left:0; right:0; z-index:10; padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
     display:flex; align-items:center; justify-content:space-between;
     background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent); pointer-events:none; }
   .topbar .brand { font-weight:800; font-size:15px; }
+  .topbar .right { display:flex; align-items:center; gap:10px; pointer-events:auto; }
   .topbar .upd { font-size:11px; color:var(--muted); }
+  #sound { width:42px; height:42px; border-radius:50%; border:0; background:rgba(255,255,255,.2); color:#fff;
+    font-size:19px; cursor:pointer; }
   .center { position:fixed; inset:0; z-index:20; display:flex; align-items:center; justify-content:center; flex-direction:column;
     gap:14px; color:var(--muted); text-align:center; padding:24px; background:#000; }
   .spinner { width:34px; height:34px; border:3px solid rgba(255,255,255,.15); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite; }
   @keyframes spin { to { transform:rotate(360deg); } }
-  .hint { position:fixed; left:0; right:0; bottom:calc(40px + env(safe-area-inset-bottom)); z-index:11; text-align:center;
+  .hint { position:fixed; left:0; right:0; bottom:calc(36px + env(safe-area-inset-bottom)); z-index:11; text-align:center;
     color:#fff; font-size:13px; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.85); animation:fade 3.4s ease forwards; }
   @keyframes fade { 0%,72%{opacity:.96} 100%{opacity:0} }
 </style>
 </head>
 <body>
-<div id="backdrop"></div>
-<div id="stage"><div id="pbox"><div id="player"></div></div></div>
+<div class="topbar"><span class="brand">코딩 쇼츠</span>
+  <span class="right"><span class="upd" id="upd"></span><button id="sound" aria-label="소리">🔇</button></span></div>
 <div id="feed"></div>
-<div class="topbar"><span class="brand">코딩 쇼츠</span><span class="upd" id="upd"></span></div>
-<div class="meta"><div class="ch" id="m-ch"></div><div class="title" id="m-title"></div></div>
-<div class="rail">
-  <button id="sound" aria-label="소리">🔇</button>
-  <a id="open" href="#" target="_blank" rel="noopener" aria-label="YouTube에서 열기">▶</a>
-</div>
 <div class="center" id="loading"><div class="spinner"></div><div>피드 불러오는 중…</div></div>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
+const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M9 7.5v9l8-4.5z"/></svg>';
 const feedEl=document.getElementById('feed');
-const backdrop=document.getElementById('backdrop');
 const soundBtn=document.getElementById('sound');
-const openBtn=document.getElementById('open');
-let items=[], player=null, apiReady=false, curId=null;
-let interacted=false;
+let items=[], apiReady=false, active=-1, interacted=false;
 let soundOn = localStorage.getItem('soundOn')==='0' ? false : true;
+const players=new Map();      // idx -> YT.Player
+const slides=[];
 
 function thumb(id){ return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
 function updIcon(){ soundBtn.textContent=(soundOn&&interacted)?'🔊':'🔇'; }
-function applySound(){
-  if(!player||!player.unMute) return;
-  if(soundOn&&interacted){ try{player.unMute(); player.setVolume(100);}catch(e){} } else { try{player.mute();}catch(e){} }
-  updIcon();
-}
-function markInteracted(){ if(interacted) return; interacted=true; applySound(); }
+function applyTo(p){ if(!p||!p.unMute) return;
+  if(soundOn&&interacted){ try{p.unMute(); p.setVolume(100);}catch(e){} } else { try{p.mute();}catch(e){} } }
+function markInteracted(){ if(interacted) return; interacted=true; const p=players.get(active); applyTo(p); updIcon(); }
 ['touchstart','pointerdown','keydown'].forEach(ev=>window.addEventListener(ev,markInteracted,{passive:true}));
 soundBtn.addEventListener('click',(e)=>{ e.stopPropagation(); interacted=true; soundOn=!soundOn;
-  localStorage.setItem('soundOn',soundOn?'1':'0'); applySound(); });
+  localStorage.setItem('soundOn',soundOn?'1':'0'); applyTo(players.get(active)); updIcon(); });
 
-function showItem(it){
-  if(!it) return;
-  document.getElementById('m-ch').textContent = it.channel?('@ '+it.channel):'';
-  document.getElementById('m-title').textContent = it.title||'';
-  openBtn.href='https://www.youtube.com/shorts/'+it.id;
-  backdrop.style.backgroundImage=`url('${thumb(it.id)}')`;
-}
-function loadIdx(idx){
-  const it=items[idx]; if(!it) return;
-  showItem(it);
-  if(it.id!==curId){
-    curId=it.id;
-    if(player&&player.loadVideoById){ player.loadVideoById(it.id); applySound(); }
-  }
-}
-
-let scrollTimer=null;
-feedEl.addEventListener('scroll',()=>{
-  markInteracted();
-  clearTimeout(scrollTimer);
-  scrollTimer=setTimeout(()=>loadIdx(Math.round(feedEl.scrollTop/feedEl.clientHeight)),100);
-},{passive:true});
-// 탭하면 일시정지/재생
-feedEl.addEventListener('click',()=>{
-  if(!player||!player.getPlayerState) return;
-  const st=player.getPlayerState();
-  try{ st===YT.PlayerState.PLAYING ? player.pauseVideo() : player.playVideo(); }catch(e){}
-});
-
-window.onYouTubeIframeAPIReady=()=>{
-  player=new YT.Player('player',{
-    playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1,fs:0,iv_load_policy:3,disablekb:1},
+function ensure(idx){
+  if(players.has(idx)) return players.get(idx);
+  if(idx<0||idx>=items.length) return null;
+  const holder=slides[idx].querySelector('.frame'); holder.innerHTML='<div></div>';
+  const id=items[idx].id;
+  const p=new YT.Player(holder.firstChild,{
+    videoId:id,
+    playerVars:{autoplay:1,mute:1,playsinline:1,loop:1,playlist:id,controls:1,rel:0,modestbranding:1,fs:0},
     events:{
-      onReady:()=>{ apiReady=true; if(items.length) loadIdx(0); applySound(); },
-      onStateChange:(e)=>{
-        if(e.data===YT.PlayerState.ENDED){ try{player.seekTo(0); player.playVideo();}catch(_){} }
-        if(e.data===YT.PlayerState.PLAYING){ applySound(); }
-      }
+      onReady:(e)=>{ if(idx===active){ e.target.playVideo(); applyTo(e.target);} else e.target.mute(); },
+      onStateChange:(e)=>{ if(e.data===YT.PlayerState.PLAYING && idx===active) applyTo(e.target);
+                           if(e.data===YT.PlayerState.ENDED){ try{e.target.seekTo(0); e.target.playVideo();}catch(_){}}}
     }
   });
-};
+  players.set(idx,p); return p;
+}
+function setActive(idx){
+  if(idx===active) return;
+  const prev=players.get(active);
+  if(prev){ try{prev.pauseVideo(); prev.mute();}catch(e){} }
+  active=idx;
+  const ph=slides[idx]&&slides[idx].querySelector('.ph'); if(ph) ph.style.display='none';
+  const p=ensure(idx); if(p&&p.playVideo){ try{p.playVideo();}catch(e){} applyTo(p); }
+  updIcon();
+  // 메모리: 멀리 있는 플레이어 제거
+  players.forEach((pl,i)=>{ if(Math.abs(i-idx)>2){ try{pl.destroy();}catch(e){} players.delete(i);
+    const f=slides[i].querySelector('.frame'); if(f) f.innerHTML='';
+    const p2=slides[i].querySelector('.ph'); if(p2) p2.style.display=''; }});
+}
+
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting && e.intersectionRatio>0.55){ markInteracted(); setActive(+e.target.dataset.idx);} });
+},{root:feedEl,threshold:[0,0.55,1]});
+
+window.onYouTubeIframeAPIReady=()=>{ apiReady=true; if(active>=0) ensure(active); };
 
 async function load(){
   try{
@@ -137,12 +118,20 @@ async function load(){
     const data=await res.json();
     items=data.items||[];
     if(!items.length){ document.getElementById('loading').innerHTML='아직 쇼츠가 없어요.<br>매일 오전 8시에 채워집니다.'; return; }
-    items.forEach(()=>{ const s=document.createElement('section'); s.className='slide'; feedEl.appendChild(s); });
+    items.forEach((it,i)=>{
+      const t=thumb(it.id);
+      const s=document.createElement('section'); s.className='slide'; s.dataset.idx=i;
+      s.innerHTML=`<div class="bg" style="background-image:url('${t}')"></div>
+        <div class="frame"><div class="ph" style="background-image:url('${t}')"><div class="pl">${PLAY}</div></div></div>
+        <div class="meta"><div class="ch">${it.channel?('@ '+it.channel):''}</div>
+          <div class="title">${(it.title||'').replace(/</g,'&lt;')}</div></div>
+        <div class="rail"><a href="https://www.youtube.com/shorts/${it.id}" target="_blank" rel="noopener">▶</a></div>`;
+      feedEl.appendChild(s); slides.push(s); io.observe(s);
+    });
     document.getElementById('loading').remove();
     if(data.updated){ const d=new Date(data.updated);
       document.getElementById('upd').textContent='업데이트 '+d.toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'})+' '+d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}); }
-    showItem(items[0]);
-    if(apiReady&&player) loadIdx(0);
+    active=0; if(apiReady) setActive(0);
     const hint=document.createElement('div'); hint.className='hint'; hint.textContent='한 번 탭하면 소리가 켜져요 🔊';
     document.body.appendChild(hint); setTimeout(()=>hint.remove(),3400);
     updIcon();

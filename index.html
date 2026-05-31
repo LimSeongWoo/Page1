@@ -15,33 +15,34 @@
   html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
     overscroll-behavior:none; }
-  /* 스크롤 스냅용 썸네일 슬라이드 */
-  #feed { height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+  #feed { position:relative; z-index:2; height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
   #feed::-webkit-scrollbar { display:none; }
   .slide { position:relative; height:100dvh; width:100%; scroll-snap-align:start; scroll-snap-stop:always;
-    background:#000; overflow:hidden; }
-  .slide .thumb { position:absolute; inset:0; background-size:cover; background-position:center; }
-  /* 고정 플레이어 (하나만, 영상만 교체) */
+    background:#000; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .slide .bg { position:absolute; inset:0; background-size:cover; background-position:center;
+    filter:blur(34px) brightness(.42); transform:scale(1.3); }
+  .slide .thumb { position:relative; width:min(100vw,calc(100dvh*9/16)); height:100dvh;
+    background-size:cover; background-position:center; }
+  /* 고정 플레이어 하나 (주변 여백은 슬라이드 블러 배경이 비쳐서 채움) */
   #stage { position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-    pointer-events:none; z-index:5; transition:opacity .12s ease; background:#000; }
+    pointer-events:none; z-index:5; transition:opacity .12s ease; }
   #stage.hide { opacity:0; }
   #pbox { width:min(100vw,calc(100dvh*9/16)); height:100dvh; }
   #player, #player iframe { width:100%; height:100%; border:0; display:block; }
-  /* 오버레이 UI */
-  .meta { position:fixed; left:0; right:64px; bottom:0; z-index:8; padding:18px 18px calc(24px + env(safe-area-inset-bottom));
-    background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.4) 60%,transparent); pointer-events:none; }
-  .meta .ch { font-size:13px; color:#ddd; margin-bottom:6px; font-weight:700; }
+  .meta { position:fixed; left:0; right:72px; bottom:0; z-index:8; padding:18px 18px calc(24px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.35) 60%,transparent); pointer-events:none;
+    max-width:760px; }
+  .meta .ch { font-size:13px; color:#eee; margin-bottom:6px; font-weight:700; }
   .meta .title { font-size:16px; line-height:1.4; font-weight:600;
     display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  .rail { position:fixed; right:12px; bottom:calc(90px + env(safe-area-inset-bottom)); z-index:9;
+  .rail { position:fixed; right:14px; bottom:calc(92px + env(safe-area-inset-bottom)); z-index:9;
     display:flex; flex-direction:column; gap:16px; pointer-events:auto; }
   .rail a, .rail button { width:48px; height:48px; border:0; border-radius:50%; background:rgba(255,255,255,.16);
     color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; text-decoration:none;
     font-size:20px; backdrop-filter:blur(6px); }
-  .rail .lbl { font-size:10px; }
   .topbar { position:fixed; top:0; left:0; right:0; z-index:10; padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
     display:flex; align-items:center; justify-content:space-between;
-    background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent); pointer-events:none; }
+    background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent); pointer-events:none; }
   .topbar .brand { font-weight:800; font-size:15px; }
   .topbar .upd { font-size:11px; color:var(--muted); }
   .center { position:fixed; inset:0; z-index:20; display:flex; align-items:center; justify-content:center; flex-direction:column;
@@ -72,7 +73,7 @@ const soundBtn=document.getElementById('sound');
 const openBtn=document.getElementById('open');
 let items=[], player=null, apiReady=false, curIdx=-1, curId=null;
 let interacted=false;
-let soundOn = localStorage.getItem('soundOn')==='0' ? false : true;  // 기본 켜짐
+let soundOn = localStorage.getItem('soundOn')==='0' ? false : true;
 
 function thumb(id){ return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
 function updIcon(){ soundBtn.textContent = (soundOn && interacted) ? '🔊' : '🔇'; }
@@ -96,29 +97,22 @@ function updateMeta(it){
   document.getElementById('m-title').textContent = it.title||'';
   openBtn.href = 'https://www.youtube.com/shorts/'+it.id;
 }
-
 function loadIdx(idx){
   const it=items[idx]; if(!it) return;
   curIdx=idx;
   if(it.id!==curId){
-    curId=it.id;
-    updateMeta(it);
+    curId=it.id; updateMeta(it);
     if(player&&player.loadVideoById){ player.loadVideoById(it.id); applySound(); }
   }
 }
 
-// 스크롤 중엔 썸네일을 보여주고(플레이어 숨김), 멈추면 해당 영상 로드
 let scrollTimer=null;
 feedEl.addEventListener('scroll',()=>{
-  markInteracted();
-  stage.classList.add('hide');
-  clearTimeout(scrollTimer);
-  scrollTimer=setTimeout(settle,110);
+  markInteracted(); stage.classList.add('hide');
+  clearTimeout(scrollTimer); scrollTimer=setTimeout(settle,110);
 },{passive:true});
-
 function settle(){
-  const idx=Math.round(feedEl.scrollTop/feedEl.clientHeight);
-  loadIdx(idx);
+  loadIdx(Math.round(feedEl.scrollTop/feedEl.clientHeight));
   stage.classList.remove('hide');
 }
 
@@ -143,8 +137,9 @@ async function load(){
     items=data.items||[];
     if(!items.length){ document.getElementById('loading').innerHTML='아직 쇼츠가 없어요.<br>매일 오전 8시에 채워집니다.'; return; }
     items.forEach(it=>{
+      const t=thumb(it.id);
       const s=document.createElement('section'); s.className='slide';
-      s.innerHTML=`<div class="thumb" style="background-image:url('${thumb(it.id)}')"></div>`;
+      s.innerHTML=`<div class="bg" style="background-image:url('${t}')"></div><div class="thumb" style="background-image:url('${t}')"></div>`;
       feedEl.appendChild(s);
     });
     document.getElementById('loading').remove();

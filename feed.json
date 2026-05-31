@@ -1,1 +1,906 @@
-{ "updated": null, "count": 0, "items": [] }
+{
+ "updated": "2026-05-31T11:12:23Z",
+ "count": 150,
+ "items": [
+  {
+   "id": "LbFuZ9HxisU",
+   "title": "AI Pro-Tips for Office Workers Who Hate Paperwork",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "erZ70fvXGsw",
+   "title": "How to Make the Most of ChatGPT + 1",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "o31CAeJBdTo",
+   "title": "An animal translator with 95% accuracy is here, wow",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "dIfKyPTBqVk",
+   "title": "An Open-Source AI So Realistic You Can't Distinguish It From a Human",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "W-cZiKXDYNs",
+   "title": "The true future of AI that Google is preparing",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "d9Gne8PI9D4",
+   "title": "Why the former Google CEO was booed during his commencement speech",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "L3yW1SmYk4I",
+   "title": "A World Where Even Trusted Services Get Hacked",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "X2BG95MS8f0",
+   "title": "The Korean AI Company That Created Insanely Fast AI",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "6T-6JV9nK68",
+   "title": "How Employees Are Reacting to the Mandate to Use AI",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "cKNbQJG0-Og",
+   "title": "The mech release that makes you feel like you need to trust someone",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "5YjgRGfxKTw",
+   "title": "Claude successfully recovered $370,000 worth of Bitcoin, insane!",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "L3mH7SwzQyg",
+   "title": "The First App Ever Developed for Meta Smart Glasses",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "fqq-_doCz4M",
+   "title": "The dark secret behind 90% off Claude",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "1qlh6PhS-Zk",
+   "title": "The Truth Behind the AI ​​Painting Criticized for Copying Monet",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "m-ZcpcDvbXs",
+   "title": "How Robots That Don't Know the Meaning of a Strike Work",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "vPNgodbzXmw",
+   "title": "Now you can code while lying in bed lol",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "XG65HhGlfqI",
+   "title": "This robot licks.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "nq5FXNafnnw",
+   "title": "How to write clean code revealed by a coding master",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "Ng0QUEGtEeI",
+   "title": "Now they are robots working by themselves, relying on their own common sense.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "D8IN9UOwmqE",
+   "title": "AI performance that is much better than experts, wow.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "nrAtKvRLwmA",
+   "title": "The reason why the Chrome update is controversial;;;",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "hb6977OligA",
+   "title": "Update on an open-source model that was already good but became three times faster",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "l24kNT9IyXA",
+   "title": "I just threw out an idea, and Manus automatically built the app.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "U6n9LJMzJp4",
+   "title": "Update on GPT: The replacement of interpreters is imminent",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "7MM1N52Gwm4",
+   "title": "Update on GPT, which claims it can do anything just by being asked, wow.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "QREoiggbI90",
+   "title": "What happens when you give a real body to an AI... *shivers*",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "wOYe-38Onu8",
+   "title": "This cat prevents your overwork.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "MCAcpfc1Ncs",
+   "title": "플렉스가 가능해진 에이전트들의 근황",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "JomaRdKXLBc",
+   "title": "Crazy ways to raise a company's stock price",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "mwoAjVX_06Y",
+   "title": "Claude, who can now do anything...",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "Ht72g8m3YmA",
+   "title": "If you use GPT images with overflowing creativity, it's mind-boggling.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "ond8nMNWTyg",
+   "title": "Turns out it's a showdown between Chinese people...?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "DZekfQtCGck",
+   "title": "SpaceX's $60 billion deal to acquire Cursor, but the CEO's age...?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "PFz7CgRoydY",
+   "title": "Employees who can no longer slack off at work...",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "CCy_UjJtdxg",
+   "title": "Google trying to take over even TTS, wow.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "6kBU-VQVRz8",
+   "title": "Do you still think of Slack as just a collaboration tool? A guide to using Slack in the AI ​​era",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "fFvYZPYvcaw",
+   "title": "How to Get $25,000 from OpenAI",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "HMR4akpycmw",
+   "title": "Why People Say GPT Image 2.0 Is Insane + Sharing Prompt Tips",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "27XHTIHIOic",
+   "title": "Joe Coding debuts as Netflix's #1 series, wow",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "sjocedRSYxc",
+   "title": "An unexpected place for Tim Cook to debut after resigning from Apple?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "k5RUOmOAjjE",
+   "title": "Why AI Will Turn the Gaming Industry Upside Down",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "5EnucvknqyA",
+   "title": "The reason you don't need to struggle for hours making presentation slides | Manus Slides",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "pbrf5OV2xZU",
+   "title": "The person who edited this video is crying.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "ZkP4mnmUbhU",
+   "title": "A genius method to drive away wild boars",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "3LmFF08DFkY",
+   "title": "Codex charges forward while Antropic hesitates.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "8vgcm1w2RsU",
+   "title": "A clever way to use the internet for free",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "1_lUI5Tj-qs",
+   "title": "Update on GPT, even generating female streamers... Is this right?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "h1ZfSe3U930",
+   "title": "Claude has declared he will conquer even design, wow.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "i1zQ90vZpII",
+   "title": "China's Insane Speed ​​of Humanoid Development (Physics)",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "qST35a2Tmpo",
+   "title": "How a Mad Developer Handles Slaves",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "AUbXKApvdPw",
+   "title": "A secret exposed by a wrong watermark..?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "nXnIww4YY48",
+   "title": "Open source TTS that perfectly replicates morning dramas",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "HHzjCNucp_4",
+   "title": "A world where an open-source model beats paid services actually exists, wow.",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "9oFY5HVK8c0",
+   "title": "What Happens When You Code an All-Time Great Open Source Model for 8 Hours",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "ApdLx3EFa64",
+   "title": "What is the performance of an AI that cost hundreds of billions?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "7C75sMUVaT0",
+   "title": "An open source repository that beat Google, wow",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "T3cPbXXrDSI",
+   "title": "The strongest coding model in existence has appeared... but you're saying they won't reveal it?",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "kMeCuDnGh9I",
+   "title": "Current Status of Japanese Robotics Technology, Becoming a Real-Life Spider-Man",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "zwSvU1L-ARk",
+   "title": "AI와 미팅하는 방법 ㄷㄷ",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "Fa2oO_SQs0s",
+   "title": "Netflix's new technology that erases existence itself...",
+   "channel": "조코딩",
+   "ts": "2026-05-31T11:12:14Z"
+  },
+  {
+   "id": "RnioKke454k",
+   "title": "AI. 앗. 제가 실수했어요.....",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "YY8GHgjskFk",
+   "title": "나와 Claude 의 대화ㅋ",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "C1StQVWiz4c",
+   "title": "우린 AI 안쓰냐?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Ee0PfVNr5Tg",
+   "title": "또 업데이트",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "BAqa9D6IxUY",
+   "title": "웹 브라우저를 만들어볼게욘",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "LPX0wV1i6FA",
+   "title": "개발자가 얻을 수 있는 것 😱😱",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "EL5fX_urMmw",
+   "title": "오픈소스 활용사례 😂",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "f0R0Bd5kGHQ",
+   "title": "연휴 끝나고 복귀한 개발자",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Gqz4s3aADY4",
+   "title": "보안 취약점 발견",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "2T1hHe8UncY",
+   "title": "금요일에 배포하면 생기는 일",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "QaWCO-aGcQc",
+   "title": "클라우드플레어 왜 또 멈춤?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Y_WEWE0N0FE",
+   "title": "바이브 해킹이라고?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "_Uhf6AG-j2s",
+   "title": "우리가 버그를 대하는 자세  #개발자유머",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "HVXb8QjQ2GI",
+   "title": "개발자 필수품  #개발자유머",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "KJcDKyNpMUA",
+   "title": "AWS 또 고장? #개발자유머",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "E7VacxPzGMk",
+   "title": "요즘 개발자 필수 앱..?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "GSwugJoTovI",
+   "title": "일단 아무거나 AI 한테 던져보는 나",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "-gR-_M3qiKM",
+   "title": "디버깅 하는 나 vs 버그",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "3XvOA-NP7zk",
+   "title": "GPT vs Claude, 누가 돈을 더 잘 불렸을까? 💸",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "QYxdA5Udzlc",
+   "title": "AI 1 무서운 신입 등장",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "lmGt8f4UvJA",
+   "title": "깃허브에서 AI 활용하기 5분컷",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "j_saLuNoTfE",
+   "title": "클로드 코드 🔥 실사용 꿀팁 공유",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "mdmQWZA-5Xs",
+   "title": "OpenAI 개발자 근황 #개발자유머",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "w7NvDC-4dDw",
+   "title": "이번 컨셉 유리에용~",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "xAc8A5G0ZOA",
+   "title": "1조 가치의 AI 기업이 순식간에 파산한 이유 🙀",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "bZnFWcH0N6c",
+   "title": "프로젝트 효율 3만배 MCP 서버 추천!",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "cLiAhSFLCcA",
+   "title": "내가 사용해 본 가장 유용한 MCP 서버 😎",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "OMyaY8iBI0o",
+   "title": "개발자 딸의 신개념 돌잡이 😆",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "SkvG7PBgnJ0",
+   "title": "요즘 난리난 Windsurf! 핵심 기능만 알려드림.",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "B7AxeKUKrCk",
+   "title": "재택 10년차의 #데스크셋업  #홈오피스",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "uRtKFcj_VAc",
+   "title": "요즘 난리난 MCP? 개발자라면 이거 공부해야함!",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "7RR3ZX-G1mg",
+   "title": "플러터 대항마? 개쩌는 Lynx의 등장...!",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Qka6rIhzG5A",
+   "title": "도파민 터진다! 유니티 선물 받는 법💥",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "whFYsj_MZ8o",
+   "title": "NEXT.js를 밀어낸 프레임워크의 등장!?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "A_5BzCpvOdE",
+   "title": "그래서 AI 가 개발자를 대체한다고?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "cEW-1avNd0o",
+   "title": "개발자 인생 꿀팁 모음 🔥",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "aLctCu8S3xc",
+   "title": "아빠는 개발자 🍼 맞벌이 현실 육아",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Ee6yv1BgqDE",
+   "title": "우리 Unity 가 달라졌어요 😆",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "FNxf3cwjAoA",
+   "title": "GPT 가 골라준 주식에 100만원을 넣었다 😎",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "xpPYqKLPtS4",
+   "title": "커서가 대세인 이유 😎",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "dUb0HSY3qyE",
+   "title": "트레이딩 봇 수익률 대공개 😱",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "yUf9s-ycVzI",
+   "title": "개발자만 이해할 수 있음 ㅋㅋㅋ",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "h1xDiBr6HD4",
+   "title": "내가 6일 만에 앱 런칭한 비법?!",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "dHuTLennbig",
+   "title": "노마드코더를 시작한 진짜 이유?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "sUcYBEb6SmE",
+   "title": "SQL 3종 💥 전격 비교",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "6kT1sBiHFLE",
+   "title": "개발자가 UI로 장난치는 법?",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "0G3nNjDYL5I",
+   "title": "최악의 IT 사태, 고작 이 버그 때문이었다니… #it대란",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "eXB_eYVtRF0",
+   "title": "최근 코파일럿을 해지한 이유 #코파일럿 #copilot",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "rxGwERgAlD8",
+   "title": "왜 백악관은 C와 C++를 쓰지 말라는 걸까? #rust",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "m5mFumblrUE",
+   "title": "어떤 언어부터 배워야 할까? 5개 언어 비교해 드림! #코딩기초",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "MCILPN8RZLo",
+   "title": "모든 것을 빨리 배우는 천재들의 비결은? #학습법",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "d4G6PpC5LAw",
+   "title": "깃이랑 깃허브 차이점 #코딩기초",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "3Y7e7SIRMyo",
+   "title": "업무 효율성을 2배로? 아이젠하워 매트릭스! #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "lO06917DXn8",
+   "title": "CSS 태극기 그리기 #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Xu9Mn2lDnVI",
+   "title": "X가 되버린 트위터? 왜? #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "Vngt8yxK1SM",
+   "title": "ChatGPT 이후 개발자들 현황 #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "4v47NxGeNIQ",
+   "title": "위기의 스택오버플로우? ☠️ #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "0uR79gYldLQ",
+   "title": "개발자 괴롭히는 방법?! #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "cDHerYYWDQk",
+   "title": "개발자라면 필수? 디자인 패턴! #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "a2RMrM0Cyb4",
+   "title": "개발자라면 이런 영화? 이런 미드! #shorts",
+   "channel": "노마드코더",
+   "ts": "2026-05-31T11:12:16Z"
+  },
+  {
+   "id": "U154TkidDLE",
+   "title": "Characteristics of modern AI",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "VvQcu09bnfA",
+   "title": "AWS's Underwear Load Balancing Algorithm",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "_sQDmWheZjI",
+   "title": "The YouTuber who got a shout-out from Shin Chang-seop",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "ixBcqf7yafw",
+   "title": "Recent Chrome update is 4GB",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "ZHLDYdJgId8",
+   "title": "Baekjoon has ended its service...",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "tsTc4O9FHY0",
+   "title": "The reason GitHub's uptime is only 89%",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "TIKmWduEuBQ",
+   "title": "(World's first) game developed by dogs",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "IbhSSzTbO3s",
+   "title": "How to find Korea",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "V9KYEGqc1tE",
+   "title": "15-second coding test but 53% got wrong",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "qWo3sA2Rhic",
+   "title": "Discord age verification incident",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "sOF-IKEEyEo",
+   "title": "AIs start gossiping about their owners",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "bOSK3pI7dwg",
+   "title": "Openclo 30-second summary",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "sbX5-eZHg34",
+   "title": "The hacker who distributed 2 billion to all users",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "NUXg1G6DBbE",
+   "title": "Google Translate app crazy update",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "Nf_DP1dyJ2E",
+   "title": "볼륨조절 UI 만들기 대회 (2025)",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "KohXGBO8M68",
+   "title": "Adobe Photoshop is too expensive to eat rice",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "srdf56tlOW8",
+   "title": "Cloudflare blows up ChatGPT",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "Jl_6N0hXpDE",
+   "title": "99% of CS students don't know this",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "fQQI25uNNWc",
+   "title": "How Developers Create Beautiful Documents",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "K3l2DEEpOOE",
+   "title": "The Dangers of Free Games on Steam",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "0-zzUfoR5Z4",
+   "title": "take a screenshot, the text disappears.",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "dpvA2LkDcMc",
+   "title": "Bezier curves are everywhere",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "CVWmcdJdYSQ",
+   "title": "Google is cold.",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "QnWwaBfYK8w",
+   "title": "Sam Altman, who distributed the GPT rice-eating model for free",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "IyHsagFLKtw",
+   "title": "Crazy people doing art with coding",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "iCOlB4OkLpE",
+   "title": "Elon Musk Gives Away 3D Girlfriends for Free",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "Zo3Jcwl2udM",
+   "title": "SKT Hacking Process Explained in AoT",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "0wYzv_TDSfk",
+   "title": "Developers arrested for speedrunning fraud",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "1KxfpvF5kBo",
+   "title": "Dororong clone AI",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  },
+  {
+   "id": "udDmL5UkI5s",
+   "title": "Awesome feature of a graphics card that no one uses",
+   "channel": "코딩애플",
+   "ts": "2026-05-31T11:12:18Z"
+  }
+ ]
+}

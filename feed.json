@@ -1,7 +1,56 @@
 {
- "updated": "2026-05-31T23:05:19Z",
+ "updated": "2026-06-01T23:05:51Z",
  "count": 150,
  "items": [
+  {
+   "id": "dXiIZfCz_0E",
+   "title": "I'm at the Red Bull Basement Hackathon finals! #redbull #redbullbasement @redbull",
+   "channel": "조코딩",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:21Z"
+  },
+  {
+   "id": "hIjz4AR1sQg",
+   "title": "Must-check for office workers! Codex Computer Use is available on Windows as well.",
+   "channel": "조코딩",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:25Z"
+  },
+  {
+   "id": "IduQonUNiCA",
+   "title": "Claude Unveils Opus 4.8... Did It Outpace GPT 5.5?",
+   "channel": "조코딩",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:28Z"
+  },
+  {
+   "id": "N2ux62GowGY",
+   "title": "Finally had an audience with CEO Jensen Huang! I've become a successful fan.",
+   "channel": "언리얼테크",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:38Z"
+  },
+  {
+   "id": "uzoukTGOtDI",
+   "title": "Jensen Huang, concentrating even on the video playing after a non-stop two-hour speech.",
+   "channel": "언리얼테크",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:41Z"
+  },
+  {
+   "id": "43UOw80aFHI",
+   "title": "Vera CPU: The Next Core Infrastructure for U.S. Stock Investing?",
+   "channel": "언리얼테크",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:45Z"
+  },
+  {
+   "id": "HIJSO00cqoQ",
+   "title": "손흥민! 보고 있나?",
+   "channel": "언리얼테크",
+   "date": "20260601",
+   "ts": "2026-06-01T23:05:48Z"
+  },
   {
    "id": "TCr8QCSSgPw",
    "title": "Organizing cables behind the GPU like this? The future of innovative PCBs in the AI ​​era.",
@@ -1002,55 +1051,6 @@
    "channel": "노마드코더",
    "ts": "2026-05-31T11:12:16Z",
    "date": "20240620"
-  },
-  {
-   "id": "3Y7e7SIRMyo",
-   "title": "업무 효율성을 2배로? 아이젠하워 매트릭스! #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230815"
-  },
-  {
-   "id": "lO06917DXn8",
-   "title": "CSS 태극기 그리기 #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230810"
-  },
-  {
-   "id": "Xu9Mn2lDnVI",
-   "title": "X가 되버린 트위터? 왜? #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230808"
-  },
-  {
-   "id": "Vngt8yxK1SM",
-   "title": "ChatGPT 이후 개발자들 현황 #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230803"
-  },
-  {
-   "id": "4v47NxGeNIQ",
-   "title": "위기의 스택오버플로우? ☠️ #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230801"
-  },
-  {
-   "id": "0uR79gYldLQ",
-   "title": "개발자 괴롭히는 방법?! #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230727"
-  },
-  {
-   "id": "cDHerYYWDQk",
-   "title": "개발자라면 필수? 디자인 패턴! #shorts",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20230725"
   }
  ]
 }

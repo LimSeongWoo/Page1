@@ -1,7 +1,35 @@
 {
- "updated": "2026-06-01T23:05:51Z",
+ "updated": "2026-06-02T19:06:23Z",
  "count": 150,
  "items": [
+  {
+   "id": "5kzwgkWNpxE",
+   "title": "A world where robots are better at soccer than me",
+   "channel": "조코딩",
+   "date": "20260602",
+   "ts": "2026-06-02T19:06:02Z"
+  },
+  {
+   "id": "r07cabcWG2I",
+   "title": "Legendary dev comments 2",
+   "channel": "코딩애플",
+   "date": "20260602",
+   "ts": "2026-06-02T19:06:09Z"
+  },
+  {
+   "id": "UthxUVc4Hpc",
+   "title": "What does the NVIDIA Vera CPU launch mean?",
+   "channel": "언리얼테크",
+   "date": "20260602",
+   "ts": "2026-06-02T19:06:16Z"
+  },
+  {
+   "id": "x6bmkNr0eDg",
+   "title": "Real or AI? AI Video Verification Tech Is Crucial! Google’s Verification Technology!",
+   "channel": "언리얼테크",
+   "date": "20260602",
+   "ts": "2026-06-02T19:06:19Z"
+  },
   {
    "id": "dXiIZfCz_0E",
    "title": "I'm at the Red Bull Basement Hackathon finals! #redbull #redbullbasement @redbull",
@@ -1023,34 +1051,6 @@
    "channel": "노마드코더",
    "ts": "2026-05-31T11:12:16Z",
    "date": "20240801"
-  },
-  {
-   "id": "rxGwERgAlD8",
-   "title": "왜 백악관은 C와 C++를 쓰지 말라는 걸까? #rust",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240720"
-  },
-  {
-   "id": "m5mFumblrUE",
-   "title": "어떤 언어부터 배워야 할까? 5개 언어 비교해 드림! #코딩기초",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240706"
-  },
-  {
-   "id": "MCILPN8RZLo",
-   "title": "모든 것을 빨리 배우는 천재들의 비결은? #학습법",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240627"
-  },
-  {
-   "id": "d4G6PpC5LAw",
-   "title": "깃이랑 깃허브 차이점 #코딩기초",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240620"
   }
  ]
 }

@@ -1,7 +1,42 @@
 {
- "updated": "2026-06-03T02:30:48Z",
+ "updated": "2026-06-03T19:06:08Z",
  "count": 150,
  "items": [
+  {
+   "id": "4bk39WmjoeU",
+   "title": "A new AI model emerges that copies and dubs voices exactly.",
+   "channel": "조코딩",
+   "date": "20260603",
+   "ts": "2026-06-03T19:05:42Z"
+  },
+  {
+   "id": "TaIAKaQ8etY",
+   "title": "Processing 1.1 trillion data per second, NVIDIA Vera CPU",
+   "channel": "언리얼테크",
+   "date": "20260603",
+   "ts": "2026-06-03T19:05:53Z"
+  },
+  {
+   "id": "joqrL33AE1k",
+   "title": "DeepSeic V4 Pro, 30 times cheaper than GPT",
+   "channel": "언리얼테크",
+   "date": "20260603",
+   "ts": "2026-06-03T19:05:56Z"
+  },
+  {
+   "id": "Z164yVMpyjE",
+   "title": "If the PCB board material is poor, does the AI ​​signal get lost?",
+   "channel": "언리얼테크",
+   "date": "20260603",
+   "ts": "2026-06-03T19:05:59Z"
+  },
+  {
+   "id": "a-KFzdW_Ybw",
+   "title": "새벽마다 502가 뜨는데 서버는 멀쩡해요 (로드밸런서의 함정)",
+   "channel": "2분코딩",
+   "date": "20260603",
+   "ts": "2026-06-03T19:06:05Z"
+  },
   {
    "id": "5kzwgkWNpxE",
    "title": "A world where robots are better at soccer than me",
@@ -1016,41 +1051,6 @@
    "channel": "노마드코더",
    "ts": "2026-05-31T11:12:16Z",
    "date": "20241012"
-  },
-  {
-   "id": "dHuTLennbig",
-   "title": "노마드코더를 시작한 진짜 이유?",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240929"
-  },
-  {
-   "id": "sUcYBEb6SmE",
-   "title": "SQL 3종 💥 전격 비교",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240916"
-  },
-  {
-   "id": "6kT1sBiHFLE",
-   "title": "개발자가 UI로 장난치는 법?",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240831"
-  },
-  {
-   "id": "0G3nNjDYL5I",
-   "title": "최악의 IT 사태, 고작 이 버그 때문이었다니… #it대란",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240817"
-  },
-  {
-   "id": "eXB_eYVtRF0",
-   "title": "최근 코파일럿을 해지한 이유 #코파일럿 #copilot",
-   "channel": "노마드코더",
-   "ts": "2026-05-31T11:12:16Z",
-   "date": "20240801"
   }
  ]
 }
